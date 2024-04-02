@@ -19,6 +19,7 @@ add_executable(
 
 target_link_libraries(
         lib_tests
+        adapter
         GTest::gtest_main
 )
 

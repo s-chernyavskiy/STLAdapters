@@ -1,10 +1,12 @@
+#include <vector>
+
 #include <lib/adapter.hpp>
 
 int main() {
-  std::map<int, int> a = {{1, 2}, {3, 5}};
-  for (auto& v : a | luvabl::values([](int i) { return i % 2; }) | luvabl::keys([](int i) { return i % 2; })) {
-    std::cout << v.first << ' ' << v.second << '\n';
-  }
+  std::vector<int> v = {1,2,3,4,5,6};
+
+  for(int i : v | luvabl::filter([](int i){return i % 2;}) | luvabl::transform([](int i){return i * i;}))
+    std::cout << i << " ";
 
   return 0;
 }
